@@ -1,5 +1,6 @@
 public class Scripture
 {
+    public static List<int> availableInd  = new List<int>();
     private Reference _reference;
     private List<Word> _words;
 
@@ -14,20 +15,15 @@ public class Scripture
         }
     }
 
-    public void HideRandomWords(int numberToHide){
+    public void HideRandomWords(List<int> wordIndexes){
         int num;
-        List<int> availableIndexes = new List<int>();
         Random rnd = new Random();
-        for(int i=0;i<numberToHide;i++){
             num = rnd.Next(0,_words.Count);
-            if(availableIndexes.Contains(num)){
+            while(wordIndexes.Contains(num)){
                 num = rnd.Next(0,_words.Count);
-                continue;
-            }else{
-                availableIndexes.Append(num);
-                _words[num].SetIsHidden(true);
             }
-        }
+                wordIndexes.Add(num);
+                _words[num].SetIsHidden(true);
 
     }
     public string GetDisplayText(){

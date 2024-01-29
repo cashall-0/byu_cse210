@@ -22,7 +22,7 @@ public class Word
         for(int i=0;i<_text.Length;i++){
             returnText +="_";
         }
-        if(_isHidden){
+        if(GetIsHidden()){
             return returnText;
         }
         return _text;
