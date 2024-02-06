@@ -9,5 +9,4 @@ public class WritingAssingment : Assingment
         return _title;
     }
     
-
 }
