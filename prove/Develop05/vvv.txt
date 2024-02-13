@@ -1,0 +1,2 @@
+score: 200
+Type: Simple Goal: ShortName: breakfast: Description: just eat breakfast: Points: 200: CompleteStatus: True

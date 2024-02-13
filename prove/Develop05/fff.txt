@@ -1,0 +1,4 @@
+score: 900
+Type: Simple Goal: ShortName: breakfast: Description: just eat breakfast: Points: 200: CompleteStatus: True
+Type: Eternal Goal: ShortName: worship: Description: just worship your creator: Points: 50: CompleteStatus: False: Turns: 2
+Type: Checklist Goal: ShortName: gg: Description: asdfghjklkjhgfdsdfghjk: Points: 200: Bonus: 500: Completed: 3: Target: 3
