@@ -1,22 +1,33 @@
 public class ClassTest: Classwork
 {
     private int _duration;
-    private DateOnly _submissionDate;
-    public ClassTest(int _duration, string _assId, Solution _solution, string _question, int _score):base(_assId, _solution, _question, _score){
+    private DateTime _submissionDate;
+    public ClassTest(int _duration, string _assId, Solution _solution, Question _question, int _score, long _studentId):base(_assId, _solution, _question, _score, _studentId){
         this._duration = _duration;
     }
-    public override bool ScoreClassWork(){
+    public ClassTest(){
+    }
+    public override bool CreateClassWork(Question question){
+
         return false;
     }
-    public override bool CreateClassWork(){
-        return false;
+    public override string GetStringRepresentation(){
+        //solution To String
+        string sol = GetSolution().FormString();
+        string quest = GetQuestion().FormString();
+        return $"{GetAssId()},={sol},={quest},={GetScore()},={_duration},={_submissionDate},={GetStudentId()}";
+    }
+    public override void ShowClassWork(){
+        string sol = GetSolution().FormString();
+        string quest = GetQuestion().FormString();
+        Console.WriteLine($"id== {GetAssId()}\nSolution == {sol}\nQuestion == {quest}\nScore == {GetScore()}\nDuration == {_duration}\nSubmitted On == {_submissionDate}\nDone By== {GetStudentId()}");
     }
     public void SetDuration(int duration)
         {
             this._duration = duration;
         }
 
-    public void SetSubmissionDate(DateOnly submissionDate)
+    public void SetSubmissionDate(DateTime submissionDate)
         {
             this._submissionDate = submissionDate;
         }
@@ -25,7 +36,7 @@ public class ClassTest: Classwork
             return this._duration;
         }
 
-    public DateOnly GetSubmissionDate()
+    public DateTime GetSubmissionDate()
         {
             return this._submissionDate;
         }

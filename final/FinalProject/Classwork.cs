@@ -2,21 +2,24 @@ public abstract class Classwork
 {
     private string _assId;
     private Solution _solution;
-    private string _question;
+    private Question _question;
     private int _score;
+    private long _studentId;
 
     public Classwork (){
         
     }
-    public Classwork (string _assId, Solution _solution, string _question, int _score){
+    public Classwork (string _assId, Solution _solution, Question _question, int _score, long _studentId){
         this._assId = _assId;
         this._question = _question;
         this._score = _score;
         this._solution = _solution;
+        this._studentId = _studentId;
         
     }
-    public abstract bool ScoreClassWork();
-    public abstract bool CreateClassWork();
+    public abstract bool CreateClassWork(Question question);
+    public abstract string GetStringRepresentation();
+    public abstract void ShowClassWork();
     public void SetAssId(string assId)
     {
         this._assId = assId;
@@ -25,6 +28,15 @@ public abstract class Classwork
     public string GetAssId()
     {
         return this._assId;
+    }
+    public void SetStudentId(long studentId)
+    {
+        this._studentId = studentId;
+    }
+
+    public long GetStudentId()
+    {
+        return this._studentId;
     }
 
     public void SetSolution(Solution solution)
@@ -37,12 +49,12 @@ public abstract class Classwork
         return this._solution;
     }
 
-    public void SetQuestion(string question)
+    public void SetQuestion(Question question)
     {
         this._question = question;
     }
 
-    public string GetQuestion()
+    public Question GetQuestion()
     {
         return this._question;
     }

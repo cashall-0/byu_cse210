@@ -1,12 +1,22 @@
 public class Solution
 {
     private string _answers;
-    private Person _author;
+    private long _author;
     public Solution(){
         
     }
+    public Solution(string answers, long author){
+        this._answers = answers;
+        this._author = author;
+        
+    }
+    public Solution(string loadFromFile){
+        string[] splitSol = loadFromFile.Split(",=");
+        this._answers = splitSol[0];
+        this._author = long.Parse(splitSol[1]);
+    }
     public string FormString(){
-        return "";
+        return $"{_answers},={_author}";
     }
     public void SetAnswers(string answers)
     {
@@ -18,12 +28,12 @@ public class Solution
         return this._answers;
     }
 
-    public void SetAuthor(Person author)
+    public void SetAuthor(long author)
     {
         this._author = author;
     }
 
-    public Person GetAuthor()
+    public long GetAuthor()
     {
         return this._author;
     }
